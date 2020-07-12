@@ -11,8 +11,8 @@ interface GitHubRepoDao {
     @Query("SELECT * FROM githubrepos ORDER BY name")
     fun getRepos(): LiveData<List<GitHubRepo>>
 
-    @Query("SELECT * FROM githubrepos WHERE name = :name")
-    fun getRepo(name: String): LiveData<GitHubRepo>
+    @Query("SELECT * FROM githubrepos WHERE id = :repoId")
+    fun getRepo(repoId: Int): LiveData<GitHubRepo>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(repos: List<GitHubRepo>)

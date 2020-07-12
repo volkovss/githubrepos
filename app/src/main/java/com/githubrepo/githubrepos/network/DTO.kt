@@ -12,8 +12,8 @@ class GitHubRepoJsonAdapter {
     @FromJson
     fun gitHubRepoJson(gitHubRepoJson: GitHubRepoJson): GitHubRepo {
         return GitHubRepo(
-            1,
-            "test"
+            gitHubRepoJson.id,
+            gitHubRepoJson.name
         )
     }
 }
