@@ -1,0 +1,19 @@
+package com.githubrepo.githubrepos.data
+
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+
+@Dao
+interface GitHubRepoDao {
+    @Query("SELECT * FROM githubrepos ORDER BY name")
+    fun getRepos(): LiveData<List<GitHubRepo>>
+
+    @Query("SELECT * FROM githubrepos WHERE name = :name")
+    fun getRepo(name: String): LiveData<GitHubRepo>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(repos: List<GitHubRepo>)
+}

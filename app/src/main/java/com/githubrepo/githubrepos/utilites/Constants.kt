@@ -1,0 +1,4 @@
+
+package com.githubrepo.githubrepos.utilites
+
+const val DATABASE_NAME = "github-repo"
