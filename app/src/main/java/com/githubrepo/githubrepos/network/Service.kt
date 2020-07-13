@@ -10,11 +10,12 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 
 interface GitHubRepoService {
-    @GET("repos")
-    fun getRepos(): Deferred<List<GitHubRepo>>
+    @GET("users/{user_name}/repos")
+    fun getRepos(@Path(value = "user_name", encoded = true) userName: String): Deferred<List<GitHubRepo>>
 }
 
 private val moshi = Moshi.Builder()

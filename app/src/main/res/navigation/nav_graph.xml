@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_repoFragment_to_repoDetailFragment"
             app:destination="@id/repoDetailFragment" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/repoDetailFragment"

@@ -6,6 +6,7 @@ import com.githubrepo.githubrepos.data.AppDatabase
 import com.githubrepo.githubrepos.data.GitHubRepository
 import com.githubrepo.githubrepos.viewmodels.RepoDetailViewModelFactory
 import com.githubrepo.githubrepos.viewmodels.RepoListViewModelFactory
+import com.githubrepo.githubrepos.viewmodels.RepoMainViewModelFactory
 
 object InjectorUtils {
 
@@ -14,9 +15,16 @@ object InjectorUtils {
                 AppDatabase.getInstance(context.applicationContext).githubRepoDao())
     }
 
-    fun provideRepoListViewModelFactory(context: Context): RepoListViewModelFactory {
+    fun provideMainViewModelFactory(context: Context): RepoMainViewModelFactory {
+        return RepoMainViewModelFactory()
+    }
+
+    fun provideRepoListViewModelFactory(
+        context: Context,
+        userName: String
+    ): RepoListViewModelFactory {
         val repository = getRepoRepository(context)
-        return RepoListViewModelFactory(repository)
+        return RepoListViewModelFactory(repository,userName)
     }
 
     fun provideRepoDetailViewModelFactory(

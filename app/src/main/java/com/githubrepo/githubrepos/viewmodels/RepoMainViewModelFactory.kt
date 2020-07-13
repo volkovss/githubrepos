@@ -5,13 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.githubrepo.githubrepos.data.GitHubRepository
 
-class RepoListViewModelFactory(
-    private val gitHubRepository: GitHubRepository,
-    private val userName: String
-) : ViewModelProvider.NewInstanceFactory() {
+class RepoMainViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return RepoListViewModel(gitHubRepository,userName) as T
+        return RepoMainViewModel() as T
     }
 }

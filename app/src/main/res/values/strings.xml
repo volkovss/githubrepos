@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Github repos</string>
+    <string name="btn_text">Показать</string>
 </resources>

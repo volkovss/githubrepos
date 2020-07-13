@@ -9,9 +9,9 @@ class GitHubRepository private constructor(private val githubDao: GitHubRepoDao)
     fun getRepos() = githubDao.getRepos()
     fun getRepo(repoId: Int) = githubDao.getRepo(repoId)
 
-    suspend fun refreshRepos() {
+    suspend fun refreshRepos(userName: String) {
         withContext(Dispatchers.IO) {
-            val list = Network.gitRepo.getRepos().await()
+            val list = Network.gitRepo.getRepos(userName).await()
             githubDao.insertAll(list)
         }
     }

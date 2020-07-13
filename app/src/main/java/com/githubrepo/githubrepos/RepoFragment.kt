@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.githubrepo.githubrepos.data.GitHubRepo
@@ -21,12 +22,14 @@ import com.githubrepo.githubrepos.viewmodels.RepoListViewModel
 
 class RepoFragment : Fragment() {
 
+    private val args: RepoFragmentArgs by navArgs()
+
     private val viewModel: RepoListViewModel by viewModels {
-        InjectorUtils.provideRepoListViewModelFactory(requireContext())
+        InjectorUtils.provideRepoListViewModelFactory(requireContext(),args.userName)
     }
 
-
     private var viewModelAdapter: RepoAdapter? = null
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
