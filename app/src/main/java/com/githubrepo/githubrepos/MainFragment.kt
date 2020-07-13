@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.githubrepo.githubrepos.databinding.FragmentMainBinding
 
 
 class MainFragment : Fragment() {
 
-   override fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -22,6 +23,11 @@ class MainFragment : Fragment() {
             container,
             false
         )
+
+        binding.searchButton.setOnClickListener {
+            it.findNavController()
+                .navigate(MainFragmentDirections.actionMainFragmentToRepoFragment())
+        }
 
         binding.setLifecycleOwner(viewLifecycleOwner)
 
