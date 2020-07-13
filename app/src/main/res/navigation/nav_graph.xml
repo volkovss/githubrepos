@@ -26,5 +26,9 @@
     <fragment
         android:id="@+id/repoDetailFragment"
         android:name="com.githubrepo.githubrepos.RepoDetailFragment"
-        android:label="RepoDetailFragment" />
+        android:label="RepoDetailFragment" >
+        <argument
+            android:name="repoId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

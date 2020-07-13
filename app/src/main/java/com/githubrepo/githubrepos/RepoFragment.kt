@@ -55,7 +55,9 @@ class RepoFragment : Fragment() {
         binding.viewModel = viewModel
 
         viewModelAdapter = RepoAdapter(RepoClick {
-            val direction = RepoFragmentDirections.actionRepoFragmentToRepoDetailFragment()
+            val direction = RepoFragmentDirections.actionRepoFragmentToRepoDetailFragment(
+                it.id ?: 0
+            )
             NavHostFragment.findNavController(this).navigate(direction)
         })
 
