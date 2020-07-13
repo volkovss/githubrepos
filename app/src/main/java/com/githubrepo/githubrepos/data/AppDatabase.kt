@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.githubrepo.githubrepos.utilites.DATABASE_NAME
 
-@Database(entities = [GitHubRepo::class], version = 1, exportSchema = false)
+@Database(entities = [GitHubRepo::class,Owner::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun githubRepoDao(): GitHubRepoDao
 
@@ -20,7 +20,9 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME).build()
+            return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
 }
