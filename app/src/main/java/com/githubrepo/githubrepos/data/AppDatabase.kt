@@ -1,12 +1,12 @@
 package com.githubrepo.githubrepos.data
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.githubrepo.githubrepos.utilites.DATABASE_NAME
+import java.util.*
 
-@Database(entities = [GitHubRepo::class,Owner::class], version = 2, exportSchema = false)
+@Database(entities = [GitHubRepo::class,Owner::class], version = 9, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun githubRepoDao(): GitHubRepoDao
 
@@ -24,5 +24,21 @@ abstract class AppDatabase : RoomDatabase() {
                 .fallbackToDestructiveMigration()
                 .build()
         }
+    }
+}
+
+class Converters {
+    @TypeConverter
+    fun fromTimestamp(value: Long?): Date? {
+        var res: Date? = null
+        if (value != null) res = Date(value)
+        return res
+    }
+
+    @TypeConverter
+    fun dateToTimestamp(date: Date?): Long? {
+        var res: Long? = null
+        if (date != null) res = date.getTime()
+        return res
     }
 }

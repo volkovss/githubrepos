@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -37,11 +38,16 @@ class MainFragment : Fragment() {
 
         binding.searchButton.setOnClickListener {
             it.findNavController()
-                .navigate(MainFragmentDirections.actionMainFragmentToRepoFragment(viewModel.userName.value ?: ""))
+                .navigate(
+                    MainFragmentDirections.actionMainFragmentToRepoFragment(
+                        viewModel.userName.value?.toLowerCase() ?: ""
+                    )
+                )
         }
 
         binding.clearButton.setOnClickListener {
             viewModel.clearCache()
+            Toast.makeText(context,R.string.cleared_text,Toast.LENGTH_SHORT).show()
         }
 
         return binding.root

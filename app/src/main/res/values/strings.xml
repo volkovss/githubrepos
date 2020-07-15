@@ -5,4 +5,5 @@
     <string name="ok">OK</string>
     <string name="message_text">Пользователь не найден</string>
     <string name="dialog_text">Пользователь не найден или ошибка подключения к серверу</string>
+    <string name="cleared_text">Кеш очищен</string>
 </resources>
