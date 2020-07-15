@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Github repos</string>
     <string name="btn_text">Показать</string>
+    <string name="btn_clear">Очистить кеш</string>
+    <string name="ok">OK</string>
+    <string name="message_text">Пользователь не найден</string>
+    <string name="dialog_text">Пользователь не найден или ошибка подключения к серверу</string>
 </resources>

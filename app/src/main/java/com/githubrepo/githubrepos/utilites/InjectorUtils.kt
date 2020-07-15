@@ -16,7 +16,8 @@ object InjectorUtils {
     }
 
     fun provideMainViewModelFactory(context: Context): RepoMainViewModelFactory {
-        return RepoMainViewModelFactory()
+        val repository = getRepoRepository(context)
+        return RepoMainViewModelFactory(repository)
     }
 
     fun provideRepoListViewModelFactory(

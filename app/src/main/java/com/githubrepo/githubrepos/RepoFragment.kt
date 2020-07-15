@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.githubrepo.githubrepos.data.GitHubRepo
 import com.githubrepo.githubrepos.databinding.FragmentRepoListBinding
 import com.githubrepo.githubrepos.databinding.RepoItemBinding
+import com.githubrepo.githubrepos.ui.RepoDialogFragment
 import com.githubrepo.githubrepos.utilites.InjectorUtils
 import com.githubrepo.githubrepos.viewmodels.RepoListViewModel
 
@@ -40,6 +41,14 @@ class RepoFragment : Fragment() {
             }
         })
 
+        viewModel.needToShowDialog.observe(viewLifecycleOwner,
+            Observer { needToShowDialog ->
+                if (needToShowDialog) {
+                    val newFragment = RepoDialogFragment()
+                    requireActivity().supportFragmentManager
+                    newFragment.show(requireActivity().supportFragmentManager, "");
+                }
+            })
     }
 
     override fun onCreateView(
@@ -53,7 +62,7 @@ class RepoFragment : Fragment() {
             false
         )
 
-        binding.setLifecycleOwner(viewLifecycleOwner)
+        binding.lifecycleOwner = viewLifecycleOwner
 
         binding.viewModel = viewModel
 

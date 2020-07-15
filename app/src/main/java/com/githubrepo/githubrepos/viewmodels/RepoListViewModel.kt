@@ -19,12 +19,23 @@ class RepoListViewModel(
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     val repos: LiveData<List<GitHubRepo>> =
-        gitHubRepository.getRepos()
+        gitHubRepository.getRepos(userName)
+
+    private val _needToShowDialog = MutableLiveData<Boolean>().apply { value = false }
+    val needToShowDialog: LiveData<Boolean>
+        get() = _needToShowDialog
 
     init {
         viewModelScope.launch {
-            gitHubRepository.refreshRepos(userName)
+            try {
+                gitHubRepository.refreshRepos(userName)
+            } catch (e: Exception) {
+                _needToShowDialog.value=true
+            }
         }
+    }
 
+    fun resetShowDialog() {
+        _needToShowDialog.value = false
     }
 }

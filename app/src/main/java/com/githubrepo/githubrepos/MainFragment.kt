@@ -40,6 +40,10 @@ class MainFragment : Fragment() {
                 .navigate(MainFragmentDirections.actionMainFragmentToRepoFragment(viewModel.userName.value ?: ""))
         }
 
+        binding.clearButton.setOnClickListener {
+            viewModel.clearCache()
+        }
+
         return binding.root
     }
 

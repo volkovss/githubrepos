@@ -6,8 +6,9 @@ import kotlinx.coroutines.withContext
 
 class GitHubRepository private constructor(private val githubDao: GitHubRepoDao) {
 
-    fun getRepos() = githubDao.getRepos()
+    fun getRepos(userName: String) = githubDao.getRepos(userName)
     fun getRepo(repoId: Int) = githubDao.getRepo(repoId)
+    suspend fun clearCache() = githubDao.clearCache()
 
     suspend fun refreshRepos(userName: String) {
         withContext(Dispatchers.IO) {
