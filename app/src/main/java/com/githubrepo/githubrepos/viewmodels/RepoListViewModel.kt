@@ -30,7 +30,9 @@ class RepoListViewModel(
             try {
                 gitHubRepository.refreshRepos(userName)
             } catch (e: Exception) {
-                _needToShowDialog.value=true
+                if (repos.value == null || repos.value?.size == 0 ) {
+                    _needToShowDialog.value = true
+                }
             }
         }
     }

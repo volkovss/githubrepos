@@ -47,6 +47,7 @@ class RepoFragment : Fragment() {
                     val newFragment = RepoDialogFragment()
                     requireActivity().supportFragmentManager
                     newFragment.show(requireActivity().supportFragmentManager, "");
+                    viewModel.resetShowDialog()
                 }
             })
     }
