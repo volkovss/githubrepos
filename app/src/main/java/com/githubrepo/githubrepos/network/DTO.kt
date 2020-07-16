@@ -17,7 +17,13 @@ data class GitHubRepoJson(
     val watchers: Int?,
     @Json(name = "stargazers_count")
     val stargazers: Int?,
-    val forks: Int?
+    val forks: Int?,
+    @Json(name = "created_at")
+    val createdAt: String? = "",
+    @Json(name = "html_url")
+    val htmlUrl: String? = "",
+    val fork: Boolean? = null,
+    val description: String? = ""
 )
 
 class GitHubRepoJsonAdapter {
@@ -31,7 +37,11 @@ class GitHubRepoJsonAdapter {
             gitHubRepoJson.language,
             gitHubRepoJson.watchers,
             gitHubRepoJson.stargazers,
-            gitHubRepoJson.forks
+            gitHubRepoJson.forks,
+            gitHubRepoJson.createdAt,
+            gitHubRepoJson.htmlUrl,
+            gitHubRepoJson.fork,
+            gitHubRepoJson.description
         )
     }
 }

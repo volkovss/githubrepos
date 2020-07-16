@@ -14,7 +14,11 @@ data class GitHubRepo constructor(
     val language: String? = "",
     val watchers: Int? = 0,
     val stargazers: Int? = 0,
-    val forks: Int? = 0
+    val forks: Int? = 0,
+    val createdAt: String? = "",
+    val htmlUrl: String? = "",
+    val fork: Boolean? = null,
+    val description: String? = ""
 )
 
 @Entity(tableName = "owners", primaryKeys = ["id"])
