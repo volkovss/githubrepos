@@ -17,6 +17,13 @@
         android:layout_height="match_parent"
         android:keepScreenOn="true">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="45dp" />
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="120dp"
@@ -31,20 +38,116 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic" />
+            tools:src="@tools:sample/backgrounds/scenic"
+            android:contentDescription="TODO" />
 
         <TextView
-            android:id="@+id/last_recognize_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:id="@+id/name_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
             android:text="@{viewModel.repo.name}"
-            android:textSize="32sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/htmlUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@{viewModel.repo.htmlUrl}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/name_detail"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/language_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.repo.language}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/htmlUrl"
+            tools:text="language" />
+
+        <TextView
+            android:id="@+id/watchers_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.repo.watchers.toString()}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/language_detail"
+            tools:text="language" />
+
+        <TextView
+            android:id="@+id/fork_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:text="@{viewModel.repo.fork.toString()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/watchers_detail"
+            tools:text="fork" />
+
+        <TextView
+            android:id="@+id/forks_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.repo.forks.toString()}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/fork_detail"
+            tools:text="fork" />
+
+        <TextView
+            android:id="@+id/owner_login"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@{viewModel.repo.owner.login}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/forks_detail"
+            tools:text="fork" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@{viewModel.repo.description}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/owner_login"
+            tools:text="description" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

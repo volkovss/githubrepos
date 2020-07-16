@@ -11,4 +11,6 @@
     <string name="star_text">Звезд:</string>
     <string name="forks_text">Форков</string>
     <string name="watchers_text">Просмотров:</string>
+    <string name="no">Нет</string>
+    <string name="yes">Да</string>
 </resources>

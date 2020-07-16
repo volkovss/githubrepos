@@ -19,7 +19,7 @@ data class GitHubRepoJson(
     val stargazers: Int?,
     val forks: Int?,
     @Json(name = "created_at")
-    val createdAt: String? = "",
+    val createdAt: Date?,
     @Json(name = "html_url")
     val htmlUrl: String? = "",
     val fork: Boolean? = null,

@@ -5,7 +5,7 @@ import androidx.room.*
 import com.githubrepo.githubrepos.utilites.DATABASE_NAME
 import java.util.*
 
-@Database(entities = [GitHubRepo::class,Owner::class], version = 20, exportSchema = false)
+@Database(entities = [GitHubRepo::class,Owner::class], version = 21, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun githubRepoDao(): GitHubRepoDao

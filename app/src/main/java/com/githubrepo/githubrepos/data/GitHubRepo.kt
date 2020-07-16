@@ -15,7 +15,7 @@ data class GitHubRepo constructor(
     val watchers: Int? = 0,
     val stargazers: Int? = 0,
     val forks: Int? = 0,
-    val createdAt: String? = "",
+    val createdAt: Date?,
     val htmlUrl: String? = "",
     val fork: Boolean? = null,
     val description: String? = ""
