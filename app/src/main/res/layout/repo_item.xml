@@ -30,6 +30,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <View
+                android:id="@+id/clickableOverlay"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{() -> repoCallback.onClick(repo)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -143,7 +156,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:singleLine="false"
-                android:text="Просмотров:"
+                android:text="@string/watchers_text"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
                 android:textSize="20sp"

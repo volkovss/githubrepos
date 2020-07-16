@@ -15,7 +15,8 @@ data class GitHubRepoJson(
     val updatedAt: Date?,
     val language: String?,
     val watchers: Int?,
-    val stargazers_count: Int?,
+    @Json(name = "stargazers_count")
+    val stargazers: Int?,
     val forks: Int?
 )
 
@@ -29,7 +30,7 @@ class GitHubRepoJsonAdapter {
             gitHubRepoJson.owner,
             gitHubRepoJson.language,
             gitHubRepoJson.watchers,
-            gitHubRepoJson.stargazers_count,
+            gitHubRepoJson.stargazers,
             gitHubRepoJson.forks
         )
     }
@@ -37,7 +38,9 @@ class GitHubRepoJsonAdapter {
 
 data class OwnerJson(
     val id: Int?,
-    val login: String?
+    val login: String?,
+    @Json(name = "avatar_url")
+    val avatarUrl: String?
 )
 
 class OwnerJsonAdapter {
@@ -45,7 +48,8 @@ class OwnerJsonAdapter {
     fun ownerJson(ownerJson: OwnerJson): Owner {
         return Owner(
             ownerJson.id,
-            ownerJson.login
+            ownerJson.login,
+            ownerJson.avatarUrl
         )
     }
 }

@@ -22,6 +22,7 @@ interface GitHubRepoService {
 
 private val moshi = Moshi.Builder()
         .add(GitHubRepoJsonAdapter())
+        .add(OwnerJsonAdapter())
         .add(KotlinJsonAdapterFactory())
         .add(CustomDateAdapter())
         .build()

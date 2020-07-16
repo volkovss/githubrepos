@@ -20,6 +20,7 @@ data class GitHubRepo constructor(
 @Entity(tableName = "owners", primaryKeys = ["id"])
 data class Owner constructor(
     val id: Int? = 0,
-    val login: String? = ""
+    val login: String? = "",
+    val avatarUrl: String? = ""
 )
 
