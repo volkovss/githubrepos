@@ -13,6 +13,7 @@ data class GitHubRepo constructor(
     val owner: Owner ? = null,
     val language: String? = "",
     val watchers: Int? = 0,
+    val stargazers: Int? = 0,
     val forks: Int? = 0
 )
 

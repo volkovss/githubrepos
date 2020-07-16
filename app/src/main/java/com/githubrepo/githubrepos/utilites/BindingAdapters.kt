@@ -20,7 +20,7 @@ fun setImageUrl(imageView: ImageView, url: String) {
 
 @BindingAdapter("dateForm")
 fun dateForm(view: TextView, date: Date) {
-    val dateFormat = SimpleDateFormat("MMM d, yyyy")
+    val dateFormat = SimpleDateFormat("d MMM, yyyy")
     view.text = dateFormat.format(date.time)
 }
 

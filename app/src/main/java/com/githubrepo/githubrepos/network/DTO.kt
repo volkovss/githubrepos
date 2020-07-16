@@ -15,6 +15,7 @@ data class GitHubRepoJson(
     val updatedAt: Date?,
     val language: String?,
     val watchers: Int?,
+    val stargazers_count: Int?,
     val forks: Int?
 )
 
@@ -28,6 +29,7 @@ class GitHubRepoJsonAdapter {
             gitHubRepoJson.owner,
             gitHubRepoJson.language,
             gitHubRepoJson.watchers,
+            gitHubRepoJson.stargazers_count,
             gitHubRepoJson.forks
         )
     }

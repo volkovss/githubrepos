@@ -5,7 +5,7 @@ import androidx.room.*
 
 @Dao
 interface GitHubRepoDao {
-    @Query("SELECT * FROM githubrepos WHERE owner_login = :userName")
+    @Query("SELECT * FROM githubrepos WHERE owner_login = :userName ORDER BY updatedAt DESC")
     fun getRepos(userName: String): LiveData<List<GitHubRepo>>
 
     @Query("SELECT * FROM githubrepos WHERE id = :repoId")
